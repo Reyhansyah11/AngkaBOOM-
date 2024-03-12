@@ -1,0 +1,172 @@
+:root{
+    /* box shadow */
+    --bx-sh1:
+    6px 6px 10px #151618,
+    -6px -6px 10px #2c3136,
+    inset 2px 2px 6px #33353b,
+    inset -3px -3px 6px #151618;
+
+    --bg4: linear-gradient(#1f1e1e);
+}
+
+*{
+    padding: 0;
+    margin: 0;
+}
+body{
+    background-color: hsl(0, 0%, 0%);
+    max-height: 200px;
+}
+
+.container{
+    width: 1200px;
+    height: 500px;
+    border-radius: 12px;
+    position: absolute;
+    top: 90%;
+    text-align: center;
+    margin-top: 20px;
+    background: var(--bg4);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+
+.container .section{
+    width: 50%;
+    height: 55%;
+    padding: 20px;
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+}
+.container .section::before{
+    content: '';
+    position: absolute;
+    top: 4px;
+    bottom: 4px;
+    right: 4px;
+    left: 4px;
+    background-color: hsl(240, 9%, 14%);
+    z-index: -1;
+}
+.container .section::after{
+    content: '';
+    background-image: linear-gradient(hsl(340, 82%, 52%), hsl(340, 82%, 52%)), linear-gradient(hsl(267, 74%, 58%), hsl(267, 74%, 58%));
+    position: absolute;
+    height: 200%;
+    width: 200%;
+    left: -50%;
+    top: -50%;
+    z-index: -2;
+    background-repeat: no-repeat;
+    background-size: 40% 40%;
+    background-position: 0 0, 100% 100%;
+    animation: rotate 4s linear infinite;
+}
+
+@keyframes rotate{
+    100%{
+        transform: rotate(360deg);
+    }
+}
+
+.container .section .isi{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+}
+
+.container .section .isi .judul h2{
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.container .section .isi .tebak-angka{
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.container .section .isi .input-user{
+    width: 260px;
+    height: 30px;
+    text-align: center;
+    border: 1px solid rgba(0,0,0, .65);
+    border-radius: 5px;
+    margin-bottom: 10px;
+    outline: none;
+    transition: .3s;
+}
+.container .section .isi .input-user:hover{
+    width:300px ;
+}
+
+.container .section .isi .check{
+    width: 90px;
+    height: 30px;
+    border-radius: 10px;
+    padding: 0 20px;
+    font-size: 16px;
+    color: black;
+    border: 1px solid rgba(0,0,0, .65);
+    outline: none;
+    transition: .3s;
+    box-shadow: 0 3px rgba(40, 39, 39, 0.742);
+    cursor: pointer;
+    margin-bottom: 20px;
+}
+
+.container .section .isi .check:active{
+    box-shadow: none;
+    position: relative;
+    top: 4px
+}
+
+.container .section .isi .result{
+    font-size: 24px;
+    font-weight: bold;
+}
+
+@media(max-width: 397px){
+    .container .section{
+        width: 600px;
+        height: 300px;
+    }
+
+    .container .section .isi .judul h2{
+        font-size: 18px;
+        margin-bottom: 20px;
+        margin-top: 20px;
+    }
+
+    .container .section .isi .tebak-angka{
+        font-size: 16px;
+    }
+
+    .container .section .isi .input-user{
+        width: 170px;
+        height: 25px;
+        margin-bottom: 1px;
+    }
+    .container .section .isi .input-user:hover{
+        width:210px ;
+    }
+
+    .container .section .isi .check{
+        width: 60px;
+        height: 22px;
+        border-radius: 10px;
+        padding: 0 5px;
+        font-size: 12px;
+    }
+
+    .container .section .isi .result{
+        font-size: 16px;
+        font-weight: bold;
+    }
+}
